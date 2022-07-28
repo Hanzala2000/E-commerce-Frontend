@@ -1,0 +1,185 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+
+.headerMain {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1% 2%;
+    background-color: rgba(242, 242, 242, 0.761);
+}
+
+.one {
+    width: 20%;
+}
+.one img{
+    width: 35%;
+}
+.two {
+    width: 35%;
+}
+
+.two input {
+    width: 100%;
+    font-size: 1.1vw;   
+    border-radius: 10px;
+    padding: 8px 10px;
+    border-color: rgba(0, 0, 0, 0.287);
+    color: rgba(0, 0, 0, 0.755);
+    background-color: rgba(253, 253, 253, 0.163);
+}
+.three {
+    width: 35%;
+}
+
+.three ul {
+    display: flex;
+}
+
+.three ul li {
+    font-size: 1.3vw;
+    margin-left: 5%;
+    text-decoration: none;
+    list-style-type: none;
+    font-weight: bolder;
+}
+
+.linkStyle {
+    color: rgba(0, 0, 0, 0.626);
+}
+
+
+/* footer */
+
+.footer {
+    margin-top: 10vmax;
+    padding: 2vmax;
+    background-color: rgb(34, 33, 33);
+    color: white;
+    display: flex;
+    align-items: center;
+}
+
+.leftFooter {
+    width: 20%;
+    display: flex;
+
+    flex-direction: column;
+    align-items: center;
+}
+
+.leftFooter>h4 {
+    font-size: 1vmax;
+}
+
+.leftFooter>p {
+    text-align: center;
+    font-size: 1.2vmax;
+    font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+        "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+}
+
+.leftFooter>img {
+    width: 11vmax;
+    margin: 1vmax;
+    cursor: pointer;
+}
+
+.midFooter {
+    width: 60%;
+
+    text-align: center;
+}
+
+.midFooter>h1 {
+    font-size: 4vmax;
+    color: #eb4034;
+}
+
+.midFooter>p {
+    max-width: 60%;
+    font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+    margin: 1vmax auto;
+}
+
+.rightFooter {
+    width: 20%;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.rightFooter>h4 {
+    font-size: 1.5vmax;
+    text-decoration: underline;
+}
+
+.rightFooter>a {
+    text-decoration: none;
+    font-size: 1.3vmax;
+    font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+    color: white;
+    transition: all 0.5s;
+    margin: 0.5vmax;
+}
+
+.rightFooter>a:hover {
+    color: #eb4034;
+}
+
+/* main */
+.main {
+    margin-top: 60px;
+}
+
+.feature {
+    text-align: center;
+    padding: 5px;
+}
+
+.container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    width: 80vw;
+    margin: 2vmax auto;
+}
+
+.productMain {
+    width: 14vmax;
+    margin: 2vmax;
+    flex-direction: column;
+    transition: all 0.5s;
+}
+
+.productMain:hover {
+    transform: translateY(-1vmax);
+}
+
+/* Loader */
+
+.loaderMain {
+    width: 100vw;
+    height: 100vh;
+    background-color: whitesmoke;
+    display: grid;
+    place-items: center;
+    max-width: 100%;
+}
+
+.loaderMain>div {
+    width: 10vmax;
+    height: 10vmax;
+    border-bottom: 5px solid grey;
+    border-radius: 50%;
+    animation: loaderRotate 800ms linear infinite;
+}
+
+@keyframes loaderRotate {
+    to {
+        transform: rotateZ(-360deg);
+    }
+}
