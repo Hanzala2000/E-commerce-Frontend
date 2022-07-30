@@ -1,34 +1,53 @@
 import ActionType from "../constants/contant";
 import axios from "axios";
 
-let getProduct = () => {    
-    return (dispatch) => {
-        axios({
-            method: "GET",
-            url: "http://localhost:8080/products/",
-        })
-        .then((success) => {
-            console.log("success", success);
-            dispatch({type:ActionType.All_PRODUCT_SUCCESS,payload:success.data.getAllProduct})
-        })
-        .catch((error) => {
-            console.log("error", error);
-        })
+let getProduct = () => {
+    return async (dispatch) => {
+        try {
+            dispatch({
+                type: ActionType.All_PRODUCT_REQUESTED,
+            })
+            axios({
+                method: "GET",
+                url: "http://localhost:8080/products/",
+            })
+                .then((success) => {
+                    console.log("success", success);
+                    dispatch({ type: ActionType.All_PRODUCT_SUCCESS, payload: success.data.products })
+                })
+                .catch((error) => {
+                    console.log("error", error);
+                })
+
+        } catch (error) {
+            dispatch({
+                type: ActionType.All_PRODUCT_FAIL,
+                payload: error.response.data.message
+            })
+        }
     }
 }
-let getProductDetail = (id) =>{
+let getProductDetail = (id) => {
     return (dispatch) => {
         axios({
             method: "GET",
             url: `http://localhost:8080/products/product/${id}`,
         })
-        .then((success) => {
-            console.log("success", success);
-            dispatch({type:ActionType.PRODUCT_DETAIL_SUCCESS,payload:success.data.getProduct})
-        })
-        .catch((error) => {
-            console.log("error", error);
+            .then((success) => {
+                console.log("success", success);
+                dispatch({ type: ActionType.PRODUCT_DETAIL_SUCCESS, payload: success.data.getProduct })
+            })
+            .catch((error) => {
+                console.log("error", error);
+            })
+    }
+}
+
+let clearErrors = () => {
+    return async (dispatch) => {
+        dispatch({
+            type:ActionType.CLEAR_ERRORS
         })
     }
 }
-export {getProduct,getProductDetail}
+export { getProduct, getProductDetail , clearErrors}

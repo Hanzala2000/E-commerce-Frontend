@@ -1,6 +1,6 @@
 * {
-    padding: 0;
     margin: 0;
+    scroll-behavior: smooth;
 }
 
 .headerMain {
@@ -14,22 +14,25 @@
 .one {
     width: 20%;
 }
-.one img{
-    width: 35%;
+
+.one img {
+    width: 5vmax;
 }
+
 .two {
     width: 35%;
 }
 
 .two input {
     width: 100%;
-    font-size: 1.1vw;   
+    font-size: 1.2vmax;
     border-radius: 10px;
-    padding: 8px 10px;
+    padding: 0.7vmax;
     border-color: rgba(0, 0, 0, 0.287);
     color: rgba(0, 0, 0, 0.755);
     background-color: rgba(253, 253, 253, 0.163);
 }
+
 .three {
     width: 35%;
 }
@@ -39,7 +42,7 @@
 }
 
 .three ul li {
-    font-size: 1.3vw;
+    font-size: 1.2vmax;
     margin-left: 5%;
     text-decoration: none;
     list-style-type: none;
@@ -82,7 +85,7 @@
 }
 
 .leftFooter>img {
-    width: 11vmax;
+    width: 9vmax;
     margin: 1vmax;
     cursor: pointer;
 }
@@ -99,6 +102,7 @@
 }
 
 .midFooter>p {
+    font-size: 1vmax;
     max-width: 60%;
     font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
     margin: 1vmax auto;
@@ -131,55 +135,129 @@
 }
 
 /* main */
-.main {
-    margin-top: 60px;
-}
-
-.feature {
-    text-align: center;
-    padding: 5px;
-}
-
-.container {
+.banner {
+    background-image: linear-gradient(to right, #635dc0, #3027ae);
+    height: 89vmin;
     display: flex;
-    flex-wrap: wrap;
-    justify-content: space-around;
-    width: 80vw;
-    margin: 2vmax auto;
-}
-
-.productMain {
-    width: 14vmax;
-    margin: 2vmax;
     flex-direction: column;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    color: white;
+}
+
+.banner>h1 {
+    margin: 5vmax;
+
+    font: 600 2.5vmax;
+    font-family: "Cambria";
+}
+
+.banner>p {
+    font: 300 1.4vmax "Cambria";
+}
+
+.banner>a>button {
+    margin-bottom: 5vmax;
+    cursor: pointer;
+    background-color: white;
+    border: 1px solid white;
+    border-radius: 0;
+    padding: 1vmax;
     transition: all 0.5s;
+    width: 9vmax;
+    font: 500 1vmax "Cambria";
 }
 
-.productMain:hover {
-    transform: translateY(-1vmax);
+.banner>a>button:hover {
+    background-color: rgba(255, 255, 255, 0);
+    color: white;
 }
 
-/* Loader */
-
-.loaderMain {
-    width: 100vw;
-    height: 100vh;
-    background-color: whitesmoke;
-    display: grid;
-    place-items: center;
+.homeHeading {
+    text-align: center;
+    font-family: Roboto;
+    font-size: 1.4vmax;
+    border-bottom: 1px solid rgba(21, 21, 21, 0.5);
+    width: 20vmax;
+    padding: 1vmax;
+    margin: 5vmax auto;
+    color: rgb(0, 0, 0, 0.7);
+  }
+  
+  .container {
+    display: flex;
+    margin: 2vmax auto;
+    width: 80vw;
+    flex-wrap: wrap;
+    justify-content: center;
     max-width: 100%;
-}
-
-.loaderMain>div {
-    width: 10vmax;
-    height: 10vmax;
-    border-bottom: 5px solid grey;
-    border-radius: 50%;
-    animation: loaderRotate 800ms linear infinite;
-}
-
-@keyframes loaderRotate {
-    to {
-        transform: rotateZ(-360deg);
+  }
+  
+  .productCard {
+    width: 14vmax;
+    display: flex;
+    flex-direction: column;
+    text-decoration: none;
+    color: rgb(48, 48, 48);
+    margin: 2vmax;
+    transition: all 0.5s;
+    padding-bottom: 0.5vmax;
+  }
+  
+  .productCard > img {
+    width: 14vmax;
+  }
+  
+  .productCard > div {
+    margin: 0.5vmax;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+  }
+  
+  .productCardSpan {
+    margin: 0.5vmax;
+    font: 300 0.7vmax "Roboto";
+  }
+  
+  .productCard > p {
+    font-family: "Cambria";
+    font-size: 1.2vmax;
+    margin: 1vmax 0.5vmax;
+    margin-bottom: 0;
+  }
+  
+  .productCard > span {
+    margin: 0.5vmax;
+    color: tomato;
+    font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+    font-size: 1vmax;
+  }
+  
+  .productCard:hover {
+    box-shadow: 0 0 5px rgba(15, 15, 15, 0.26);
+  
+    transform: translateY(-1vmax);
+  }
+  
+  @media screen and (max-width: 600px) {
+    .productCard > p {
+      font-size: 1.7vmax;
     }
-}
+  
+    .productCard > div {
+      margin: 0vmax;
+      display: block;
+
+    }
+  
+    .productCard > span {
+      font-size: 1.5vmax;
+    }
+  
+    .productCard > div > span {
+      margin: 0 0.5vmax;
+      font: 300 1vmax "Roboto";
+    }
+  }

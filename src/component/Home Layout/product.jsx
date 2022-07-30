@@ -1,26 +1,27 @@
 import React from 'react'
 import './layout.css'
 import ReactStars from 'react-rating-stars-component'
-import {Link} from 'react-router-dom'
+import { Link } from 'react-router-dom'
 
-function Product({homeProducts}) {
+function Product({ product }) {
     const options = {
-        edit:false,
-        color:"rgba(20,20,20,0.1)",
-        activeColor:"tomato",
-        size:22,
+        edit: false,
+        color: "rgba(20,20,20,0.1)",
+        activeColor: "tomato",
+        size: window.innerWidth < 600 ? 20 : 25,
         isHalf: true,
-        value:2.5
+        value: 2.5
     }
     return (
-        <Link className='productMain' to={`/product/${homeProducts._id}`}>
-            <img style={{width:"200px",height:"250px"}} src={homeProducts.images[0].url} alt="" />
-            <h3>{homeProducts.name}</h3>
-            <div style={{display:"flex",alignItems:"center",padding:"3px"}}>
-            <ReactStars {...options} />
-            <span style={{fontSize:12,padding:"2px"}}>{`${homeProducts.numOfReviews} Reviews`}</span>
+        <Link className='productCard' to={`/product/${product._id}`}>
+            <img src={product.images[0].url} alt={product.name} />
+            <p>{product.name}</p>
+            <div>
+                <ReactStars {...options} />
+                {/* <span>{`${product.numOfReviews} Reviews`}</span> */}
             </div>
-            <h4>{`Rs ${homeProducts.price}`}</h4>
+            <span>{`${product.price}`}</span><br />
+            <span>{`${product._id}`}</span>
         </Link>
     )
 }

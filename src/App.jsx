@@ -13,14 +13,14 @@ import { loadUser } from './store/action/userAction';
 
 
 function App() {
-  useEffect(()=>{
-    store.dispatch(loadUser())
-  })
+  // useEffect(()=>{
+  //   store.dispatch(loadUser())
+  // })
   return (
     <Router>
       <Header/>
       <Routes>
-      <Route exact path='/' element={<Main/>}/>
+      <Route exact path='/' element={<Main/>}/> 
       <Route exact path='/product/:id' element={<ProductDetails/>}/>
       <Route exact path='/products' element={<Products/>}/>
       <Route exact path='/login' element={<Login/>}/>
