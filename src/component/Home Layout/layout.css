@@ -176,7 +176,7 @@
 
 .homeHeading {
     text-align: center;
-    font-family: Roboto;
+    font-family: Cambria;
     font-size: 1.4vmax;
     border-bottom: 1px solid rgba(21, 21, 21, 0.5);
     width: 20vmax;
@@ -193,7 +193,6 @@
     justify-content: center;
     max-width: 100%;
   }
-  
   .productCard {
     width: 14vmax;
     display: flex;
@@ -207,6 +206,7 @@
   
   .productCard > img {
     width: 14vmax;
+    height: 50%;
   }
   
   .productCard > div {
@@ -218,7 +218,13 @@
   
   .productCardSpan {
     margin: 0.5vmax;
-    font: 300 0.7vmax "Roboto";
+    font: 300 0.9vmax "calibri";
+  }
+  .productCardSpan2 {
+    margin: 0.5vmax;
+    font: bolder 1vmax "Cambria";
+    color: tomato;
+
   }
   
   .productCard > p {
@@ -228,12 +234,12 @@
     margin-bottom: 0;
   }
   
-  .productCard > span {
+  /* .productCard > span {
     margin: 0.5vmax;
     color: tomato;
     font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
     font-size: 1vmax;
-  }
+  } */
   
   .productCard:hover {
     box-shadow: 0 0 5px rgba(15, 15, 15, 0.26);
@@ -249,7 +255,6 @@
     .productCard > div {
       margin: 0vmax;
       display: block;
-
     }
   
     .productCard > span {
@@ -258,6 +263,34 @@
   
     .productCard > div > span {
       margin: 0 0.5vmax;
-      font: 300 1vmax "Roboto";
+      font: 300 1vmax "Cambria";
+    }
+  }
+/* Loader */
+
+
+
+.loading {
+    width: 100vw;
+    height: 100vh;
+    background-color: white;
+    display: grid;
+    place-items: center;
+    max-width: 100%;
+  }
+  
+  .loading > div {
+    width: 10vmax;
+    height: 10vmax;
+    border-bottom: 5px solid rgba(0, 0, 0, 0.719);
+  
+    border-radius: 50%;
+  
+    animation: loadingRotate 800ms linear infinite;
+  }
+  
+  @keyframes loadingRotate {
+    to {
+      transform: rotateZ(-360deg);
     }
   }

@@ -13,17 +13,18 @@ let getProduct = () => {
             })
                 .then((success) => {
                     console.log("success", success);
-                    dispatch({ type: ActionType.All_PRODUCT_SUCCESS, payload: success.data.products })
+                    dispatch({ type: ActionType.All_PRODUCT_SUCCESS, payload: success.data })
                 })
                 .catch((error) => {
-                    console.log("error", error);
+                    dispatch({
+                        type: ActionType.All_PRODUCT_FAIL,
+                        payload: error.response.data.message
+                    })
                 })
 
         } catch (error) {
-            dispatch({
-                type: ActionType.All_PRODUCT_FAIL,
-                payload: error.response.data.message
-            })
+            console.log("error", error);
+
         }
     }
 }
@@ -46,8 +47,8 @@ let getProductDetail = (id) => {
 let clearErrors = () => {
     return async (dispatch) => {
         dispatch({
-            type:ActionType.CLEAR_ERRORS
+            type: ActionType.CLEAR_ERRORS
         })
     }
 }
-export { getProduct, getProductDetail , clearErrors}
+export { getProduct, getProductDetail, clearErrors }

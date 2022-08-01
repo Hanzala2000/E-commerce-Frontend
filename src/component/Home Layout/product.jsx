@@ -10,7 +10,7 @@ function Product({ product }) {
         activeColor: "tomato",
         size: window.innerWidth < 600 ? 20 : 25,
         isHalf: true,
-        value: 2.5
+        value: product.ratings
     }
     return (
         <Link className='productCard' to={`/product/${product._id}`}>
@@ -18,10 +18,10 @@ function Product({ product }) {
             <p>{product.name}</p>
             <div>
                 <ReactStars {...options} />
-                {/* <span>{`${product.numOfReviews} Reviews`}</span> */}
+                <span className='productCardSpan'>{`${product.numOfReviews} Reviews`}</span>
             </div>
-            <span>{`${product.price}`}</span><br />
-            <span>{`${product._id}`}</span>
+            <span className='productCardSpan2'>{`Rs ${product.price}`}</span><br />
+            <span className='productCardSpan'>{`${product._id}`}</span>
         </Link>
     )
 }

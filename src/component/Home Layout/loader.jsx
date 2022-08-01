@@ -3,7 +3,7 @@ import './layout.css'
 
 function Loader(){
     return(
-        <div className='loaderMain'>
+        <div className='loading'>
             <div>
 
             </div>
