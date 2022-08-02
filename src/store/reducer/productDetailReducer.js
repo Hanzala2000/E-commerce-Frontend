@@ -1,10 +1,10 @@
 import ActionType from '../constants/contant'
 const INITIAL_STATE = {
-    oneProduct: {},
+    product: {},
     isLoading: false
 }
 
-export default function postDetailReducer(state = INITIAL_STATE, action) {
+export default function productDetailReducer(state = INITIAL_STATE, action) {
     switch (action.type) {
         case ActionType.PRODUCT_DETAIL_REQUESTED:
             return {
@@ -14,11 +14,17 @@ export default function postDetailReducer(state = INITIAL_STATE, action) {
         case ActionType.PRODUCT_DETAIL_SUCCESS:
             return {
                 isLoading: false,
-                oneProduct: action.payload,
+                product: action.payload,
             }
         case ActionType.PRODUCT_DETAIL_FAIL:
             return {
                 isLoading: false,
+                error: action.payload
+            }
+        case ActionType.CLEAR_ERRORS:
+            return {
+                ...state,
+                error: null
             }
         default:
             return state
