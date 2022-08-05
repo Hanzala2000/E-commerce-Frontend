@@ -29,23 +29,29 @@ let getProduct = () => {
     }
 }
 let getProductDetail = (id) => {
-    return (dispatch) => {
-        dispatch({
-            type:ActionType.PRODUCT_DETAIL_REQUESTED
-        })
-        axios({
-            method: "GET",
-            url: `http://localhost:8080/products/${id}`,
-        })
-            .then((success) => {
-                dispatch({ type: ActionType.PRODUCT_DETAIL_SUCCESS, payload: success.data.getProduct })
+    return async (dispatch) => {
+        try {
+            dispatch({
+                type: ActionType.PRODUCT_DETAIL_REQUESTED,
             })
-            .catch((error) => {
-                dispatch({
-                    type: ActionType.PRODUCT_DETAIL_FAIL,
-                    payload: error.response.data.message
+            axios({
+                method: "GET",
+                url: `http://localhost:8080/products/${id}`,
+            })
+                .then((success) => {
+                    dispatch({ type: ActionType.PRODUCT_DETAIL_SUCCESS, payload: success.data.getProduct })
                 })
-            })
+                .catch((error) => {
+                    dispatch({
+                        type: ActionType.PRODUCT_DETAIL_FAIL,
+                        payload: error.response.data.message
+                    })
+                })
+        }
+        catch (error) {
+            console.log("error", error.message);
+
+        }
     }
 }
 

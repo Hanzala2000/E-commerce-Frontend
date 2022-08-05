@@ -17,18 +17,26 @@
     box-sizing: border-box;
     border: 1px solid white;
   }
+  .CarouselImage {
+    width: 30vmax;
+    height: 30vmax;
+  }
   
-  /* .ProductDetails > div:last-child {
+  .ProductDetails > div:last-child {
     align-items: flex-start;
   }
   
-  .CarouselImage {
-    width: 20vmax;
+  .redColor{
+    color: red;
+    font-weight: bold;
   }
-  
+  .greenColor{
+    color: green;
+    font-weight: bold;
+  }
   .detailsBlock-1 > h2 {
     color: rgb(54, 54, 54);
-    font: 600 1.6vmax "Roboto";
+    font: 600 1.6vmax "Cambria";
   }
   
   .detailsBlock-1 > p {
@@ -46,8 +54,8 @@
     padding: 1vmax 0;
   }
   
-  .detailsBlock-2-span {
-    font: 200 0.8vmax cursive;
+  .detailsBlock-2 span {
+    font: 200 0.9vmax cursive;
     color: rgba(0, 0, 0, 0.699);
   }
   
@@ -109,7 +117,7 @@
     border-bottom: 1px solid rgba(0, 0, 0, 0.205);
     padding: 1vmax 0;
     color: rgba(0, 0, 0, 0.651);
-    font: 400 1vmax "Roboto";
+    font: 400 1vmax "Franklin Gothic Medium";
     margin: 1vmax 0;
   }
   
@@ -206,10 +214,10 @@
     .ProductDetails > div:last-child {
       align-items: center;
     }
-  
     .detailsBlock-1 > h2 {
       font-size: 2.8vmax;
       text-align: center;
+      padding: 0vmax 0vmax 0.8vmax 0vmax;
     }
   
     .detailsBlock-1 > p {
@@ -281,4 +289,4 @@
     .reviewCardComment {
       font: 300 5vw cursive;
     }
-  } */
+  }

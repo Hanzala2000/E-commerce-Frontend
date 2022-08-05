@@ -21,7 +21,7 @@ function Main() {
     }, [dispatch, error,alert])
     return (
         <Fragment>
-            {isLoading ? <Loader /> : <Fragment>
+            
                 <MetaData title="E-Commerce - Home" />
                 <div className='banner'>
                     <p>Welcome To E-Commerce</p>
@@ -29,6 +29,7 @@ function Main() {
                     <a href="#container"><button>Scroll</button></a>
                 </div>
                 <h2 className='homeHeading'>Featured Products</h2>
+                {isLoading ? <Loader /> : <Fragment>
                 <div className="container" id='container'>
                     {product && product.map((item, i) => {
                         return <Product key={item._id} product={item} />
