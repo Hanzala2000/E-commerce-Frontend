@@ -23,6 +23,7 @@ function App() {
       <Route exact path='/' element={<Main/>}/> 
       <Route exact path='/product/:id' element={<ProductDetails/>}/>
       <Route exact path='/products' element={<Products/>}/>
+      <Route path='/products/:keyword' element={<Products/>}/>
       <Route exact path='/login' element={<Login/>}/>
       <Route exact path='/signup' element={<Signup/>}/>
       </Routes>

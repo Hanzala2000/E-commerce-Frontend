@@ -1,24 +1,39 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, Fragment } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import Loader from '../Home Layout/loader'
 import Product from '../Home Layout/product'
-import { getProduct } from '../../store/action/productAction'
+import { getProduct, clearErrors } from '../../store/action/productAction'
+import { useAlert } from 'react-alert'
+import MetaData from "../Home Layout/metaData";
 import './allpro.css'
+import { useParams } from 'react-router-dom'
+
 function Products() {
-    const { product } = useSelector(state => state.postReducer)
+  const params  = useParams()
+  let keyword = params.keyword
+    const { product, isLoading, error, productsCount } = useSelector(state => state.productReducer)
     const dispatch = useDispatch()
+    const alert = useAlert()
     useEffect(() => {
-        dispatch(getProduct())
-    }, [dispatch])
+        if (error) {
+            alert.error(error)
+            dispatch(clearErrors())
+        }
+        dispatch(getProduct(keyword))
+    }, [dispatch, alert, error,keyword])
     return (
-        <div className='allProMain'>
-            <h2>Products</h2>
-            <div className='products'>
-                {product && product.map((v, i) => {
-                    return <Product key={i} homeProducts={v} />
-                })}
-            </div>
-        </div>
+        <Fragment>
+            <MetaData title="Products" />
+            <h2 className='productsHeading'>Products</h2>
+            {isLoading ? <Loader /> :
+                <div className='products'>
+                    {product && product.map((product, i) => {
+                        return <Product key={product._id} product={product} />
+                    })}
+                </div>
+            }
+
+        </Fragment>
     )
 }
 

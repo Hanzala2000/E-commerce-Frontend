@@ -1,7 +1,7 @@
 import ActionType from "../constants/contant";
 import axios from "axios";
 
-let getProduct = () => {
+let getProduct = (keyword = "") => {
     return async (dispatch) => {
         try {
             dispatch({
@@ -9,10 +9,9 @@ let getProduct = () => {
             })
             axios({
                 method: "GET",
-                url: "http://localhost:8080/products/",
+                url: `http://localhost:8080/products?keyword=${keyword}`
             })
                 .then((success) => {
-                    console.log("success", success);
                     dispatch({ type: ActionType.All_PRODUCT_SUCCESS, payload: success.data })
                 })
                 .catch((error) => {

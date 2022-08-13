@@ -3,7 +3,7 @@ import { useState, useEffect } from 'react'
 import './layout.css'
 import Product from './product'
 import MetaData from './metaData'
-import { getProduct } from '../../store/action/productAction'
+import { clearErrors, getProduct } from '../../store/action/productAction'
 import { useDispatch, useSelector } from "react-redux"
 import Loader from './loader'
 import { useAlert } from 'react-alert'
@@ -15,7 +15,8 @@ function Main() {
     const { error, productsCount, product, isLoading } = useSelector(state => state.productReducer)
     useEffect(() => {
         if (error) {
-            return alert.error(error)
+            alert.error(error)
+            dispatch(clearErrors())
         }
         dispatch(getProduct())
     }, [dispatch, error,alert])

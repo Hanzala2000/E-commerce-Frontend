@@ -7,7 +7,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 1% 2%;
+    padding: 1%;
     background-color: rgba(242, 242, 242, 0.761);
 }
 
@@ -20,21 +20,41 @@
 }
 
 .two {
+  display: flex;
     width: 35%;
 }
+.two > button{
+  width: 17%;
+  font-size: 1vw;
+  padding: 0.7vmax;
+    border-radius: 7px;
+    border-color: rgba(0, 0, 0, 0.287);
+    color: rgba(0, 0, 0, 0.755);
+    background-color: rgba(253, 253, 253, 0.163); 
+    margin-left: 5px;
+    transition:all 0.5s;
+}
+.two > button:hover{
+  border: none;outline: none;color: white;font-weight: 600;background-color: tomato;font-family: Cambria;
+}
 
-.two input {
+.two > input {
     width: 100%;
     font-size: 1.2vmax;
-    border-radius: 10px;
+    border-radius: 7px;
     padding: 0.7vmax;
     border-color: rgba(0, 0, 0, 0.287);
     color: rgba(0, 0, 0, 0.755);
     background-color: rgba(253, 253, 253, 0.163);
 }
+.two > input:focus{
+  background-color:white  ;
+  color: rgba(0, 0, 0, 0.675);
+  font-weight: 500;
+}
 
 .three {
-    width: 35%;
+    width: 50%;
 }
 
 .three ul {

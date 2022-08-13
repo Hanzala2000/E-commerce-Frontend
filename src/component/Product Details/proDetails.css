@@ -2,7 +2,7 @@
     background-color: rgb(255, 255, 255);
     width: 100vw;
     max-width: 100%;
-    padding: 6vmax;
+    padding: 2vmax;
     box-sizing: border-box;
     display: flex;
   }
@@ -18,8 +18,8 @@
     border: 1px solid white;
   }
   .CarouselImage {
-    width: 30vmax;
-    height: 30vmax;
+    width: 25vmax;
+    height:50vh;
   }
   
   .ProductDetails > div:last-child {
@@ -176,7 +176,7 @@
   }
   
   .reviewCard {
-    flex: none;
+    flex: none; 
   
     box-shadow: 0 0 5px rgba(0, 0, 0, 0.226);
     border: 1px solid rgba(56, 56, 56, 0.116);
@@ -219,7 +219,9 @@
       text-align: center;
       padding: 0vmax 0vmax 0.8vmax 0vmax;
     }
-  
+  .CarouselImage{
+    width: 47vmax;
+  }
     .detailsBlock-1 > p {
       text-align: center;
       font-size: 1vmax;

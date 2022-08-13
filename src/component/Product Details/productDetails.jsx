@@ -3,21 +3,27 @@ import "./proDetails.css";
 import ReactStars from "react-rating-stars-component";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
-import { getProductDetail } from "../../store/action/productAction";
+import { clearErrors, getProductDetail } from "../../store/action/productAction";
 import ReviewCard from "./reviewCard";
 import Loader from "../Home Layout/loader";
 import Carousel from "react-material-ui-carousel";
 import { Rating } from "@material-ui/lab";
 import MetaData from "../Home Layout/metaData";
-function  ProductDetails  () {
-  let { id } = useParams();
-  const dispatch = useDispatch();
-  useEffect(() => {
-    dispatch(getProductDetail(id));
-  }, [dispatch]);
+import { useAlert } from 'react-alert'
+function ProductDetails() {
   const { product, loading, error } = useSelector(
     (state) => state.productDetailReducer
   );
+  const alert = useAlert()
+  let { id } = useParams();
+  const dispatch = useDispatch();
+  useEffect(() => {
+    if (error) {
+      alert.error(error)
+      dispatch(clearErrors())
+    }
+    dispatch(getProductDetail(id));
+  }, [dispatch,alert,error]);
   const options = {
     edit: false,
     color: "rgba(20,20,20,0.1)",
@@ -28,9 +34,9 @@ function  ProductDetails  () {
   };
   return (
     <Fragment>
-      {loading ? (
-        <Loader />
-      ) : (
+      <MetaData title={product.name} />
+
+      {loading ? <Loader /> : <Fragment>
         <div className="ProductDetails">
           <Carousel>
             {product.images &&
@@ -79,9 +85,17 @@ function  ProductDetails  () {
             <div className="detailsBlock-4">
               <p>Description : {product.description}</p>
             </div>
+            <button className="submitReview">Submit Review</button>
           </div>
         </div>
-      )}
+        <h1 className="reviewsHeading">Reviews</h1>
+        {product.reviews && product.reviews[0] ? (<div className="reviews">
+          {product.reviews && product.reviews.map(review => {
+            return <ReviewCard key={review._id} reviewItem={review} />
+          })}
+        </div>) : (<p className="noReviews">No Reviews Yet</p>)}
+
+      </Fragment>}
     </Fragment>
   );
 }
